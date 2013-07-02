@@ -21,10 +21,6 @@ class API < Grape::API
     # 手机归属地查询
     if (location.size == 11 && location.to_i > 13000000001)
       geo = redis.hgetall(location[0..6])
-      puts "==================="
-      puts geo
-      puts location[0..6]
-      puts "==================="
       unless geo.empty?
         result[:provide] = geo['provide']
         result[:mobile]  = location
