@@ -1,7 +1,7 @@
 #!/bin/sh
 ##HMSET key field value [field value ...]
 
-cat ./db/data.csv | awk -F "|" "BEGIN {x=1} {print \"HMSET\", \$1, \"provide\", \$2, \"location\", \$3 ; x++ }" | redis-cli > /dev/null 
+cat ../db/data.csv | awk -F "|" "BEGIN {x=1} {print \"HMSET\", \$1, \"provide\", \$2, \"location\", \$3 ; x++ }" | redis-cli > /dev/null 
 
 
 echo 'import data finished.'
