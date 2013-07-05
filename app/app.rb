@@ -8,7 +8,7 @@ class API < Grape::API
 
   before do
     header 'X-Robots-Tag', 'noindex'
-    header 'Content-Type', 'application/json'
+    header 'Content-Type', 'application/json; charset=utf-8'
   end
 
   desc "翻译地址。"
