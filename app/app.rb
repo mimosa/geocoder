@@ -2,13 +2,17 @@
 require 'grape'
 require 'config/database'
 require 'lib/geocoder'
+require 'helpers/base_helpers'
 
 class API < Grape::API
   format  :json
 
+  helpers ::BaseHelpers
+
   before do
     header 'X-Robots-Tag', 'noindex'
     header 'Content-Type', 'application/json; charset=utf-8'
+    params[:loc] = remote_ip if params[:loc].blank?
   end
 
   desc "翻译地址。"

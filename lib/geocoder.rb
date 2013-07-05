@@ -116,6 +116,7 @@ class Geocoder
 
   # 检查IP
   def check_ip(str)
+    return false if str.blank?
     ip = str.split('.')
     if ip.count == 4
       ip = ip.join.to_i
