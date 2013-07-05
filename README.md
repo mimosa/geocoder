@@ -1,3 +1,21 @@
+部署说明
+====
+
+`cd geocoder`
+* 加执行权限
+
+`chmod +x ./bin/migrate.sh`
+* 请确保 `redis-server` 运行
+* 导入 手机号段 及 身份证号段 数据
+
+`./bin/migrate.sh`
+* 运行 `Jetty` 下
+
+`mizuno`
+* 打成 `war` 包
+
+`bundle exec warble`
+
 
 API 调用说明
 ====
