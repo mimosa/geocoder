@@ -13,7 +13,7 @@ Warbler::Config.new do |config|
   # config.features = %w(gemjar)
 
   # Application directories to be included in the webapp.
-  config.dirs = %w(app config lib)
+  config.dirs = %w(app config lib helpers)
 
   # Additional files/directories to include, above those in config.dirs
   config.includes = FileList["config.ru"]

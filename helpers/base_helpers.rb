@@ -46,6 +46,9 @@ module BaseHelpers
   end
 
   def remote_ip
+    @remote_ip ||= @env['HTTP_X_FORWARDED_FOR']
+    @remote_ip ||= @env['HTTP_X_REAL_IP']
+    @remote_ip ||= @env['HTTP_CLIENT_IP']
     @remote_ip ||= @env['REMOTE_ADDR']
   end
 
