@@ -14,5 +14,6 @@ gem 'nestful'
 
 gem 'grape' # API接口
 gem 'redis' # 数据库
+gem 'redis-rack', '1.4.2' # Session
 
 gem 'multi_json' # JOSN解析
