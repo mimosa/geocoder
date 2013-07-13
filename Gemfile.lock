@@ -76,6 +76,7 @@ DEPENDENCIES
   jruby-openssl
   mizuno
   multi_json
+  multi_xml
   nestful
   rake
   redis

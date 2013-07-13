@@ -1,19 +1,25 @@
 # -*- encoding: utf-8 -*-
 require 'grape'
-require 'config/database'
-require 'lib/geocoder'
-require 'lib/shortener'
-require 'lib/smsbao'
-require 'helpers/base_helpers'
 
 class API < Grape::API
   format  :json
+  content_type :xml, 'text/xml'
 
   helpers ::BaseHelpers
 
   before do
     header 'X-Robots-Tag', 'noindex'
     header 'Content-Type', 'application/json; charset=utf-8'
+  end
+
+  desc "首页。"
+  get '/' do
+    { 
+      geocoder: {},
+      shortener: {},
+      smssender: {},
+      settings: {}
+    }
   end
 
   resource :geocoder do
@@ -131,6 +137,52 @@ class API < Grape::API
       end
 
       @smssender.send(mobile, params[:content].force_encoding('utf-8'))
+    end
+  end
+
+  resource :settings do
+    desc "状态。"
+    get '/' do
+      { status: 'ok' }
+    end
+
+    desc "提取配置。"
+    params do
+      requires :token, type: String, desc: "提取码"
+    end
+    get ':token' do
+      @props = Settings.new(params[:token])
+      @props.decode
+    end
+
+    desc "更新配置。"
+    params do
+      requires :token, type: String, desc: "提取码"
+    end
+    post ':token' do
+      @props = Settings.new(params[:token])
+      # 踢出
+      # params.reject! {|k, v| %w"route_info token".include? k }
+      body = env['api.request.input']
+      case env['CONTENT_TYPE']
+      when 'text/xml'
+        @props.by_xml(body)
+      when 'application/json'
+        @props.by_json(body)
+      end
+      
+      redirect "/settings/#{@props.to_s}"
+    end
+
+    desc "删除配置。"
+    params do
+      requires :token, type: String, desc: "提取码"
+    end
+    delete ':token' do
+      @props = Settings.new(params[:token])
+      @props.delete
+
+      redirect "/settings"
     end
   end
 

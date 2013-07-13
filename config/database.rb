@@ -1,9 +1,9 @@
 # -*- encoding: utf-8 -*-
 require 'redis'
-require 'yaml'
+require 'psych'
 
 def redis_conf
-  @_conf ||= YAML.load_file('config/redis.yml')[ENV['RACK_ENV'] || 'development']
+  @_conf ||= Psych.load_file('config/redis.yml')[ENV['RACK_ENV'] || 'development']
 end
 
 def redis

@@ -17,3 +17,4 @@ gem 'redis' # 数据库
 gem 'redis-rack', '1.4.2' # Session
 
 gem 'multi_json' # JOSN解析
+gem 'multi_xml'  # XML解析
