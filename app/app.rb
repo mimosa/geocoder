@@ -1,5 +1,12 @@
 # -*- encoding: utf-8 -*-
 require 'grape'
+# 
+require 'geocoder'  # 地理位置
+require 'shortener' # 短网址
+require 'smsbao'   # 短信
+require 'settings' # YAML配置文件
+# Helpers
+require 'helpers/base_helpers'
 
 class API < Grape::API
   format  :json
@@ -153,6 +160,27 @@ class API < Grape::API
     get ':token' do
       @props = Settings.new(params[:token])
       @props.decode
+    end
+
+    desc "查询。"
+    params do
+      requires :token, type: String, desc: "提取码"
+      requires :q, type: String, desc: "查询"
+    end
+    get ':token/search' do
+      @props = Settings.new(params[:token])
+      @props.find(params[:q].force_encoding('utf-8'))
+    end
+
+    desc "查询字段。"
+    params do
+      requires :token, type: String, desc: "提取码"
+      requires :field, type: String, desc: "字段"
+      requires :q, type: String, desc: "查询"
+    end
+    get ':token/search/:field' do
+      @props = Settings.new(params[:token])
+      @props.find_by(params[:q].force_encoding('utf-8'), params[:field])
     end
 
     desc "更新配置。"

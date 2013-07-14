@@ -13,7 +13,7 @@ Warbler::Config.new do |config|
   # config.features = %w(gemjar)
 
   # Application directories to be included in the webapp.
-  config.dirs = %w(app config lib helpers)
+  config.dirs = %w(app config lib public/uploads)
 
   # Additional files/directories to include, above those in config.dirs
   config.includes = FileList["config.ru"]
@@ -80,7 +80,7 @@ Warbler::Config.new do |config|
 
   # Name of the archive (without the extension). Defaults to the basename
   # of the project directory.
-  # config.jar_name = "mywar"
+  config.jar_name = "api"
 
   # Name of the MANIFEST.MF template for the war file. Defaults to a simple
   # MANIFEST.MF that contains the version of Warbler used to create the war file.
@@ -89,7 +89,7 @@ Warbler::Config.new do |config|
   # When using the 'compiled' feature and specified, only these Ruby
   # files will be compiled. Default is to compile all \.rb files in
   # the application.
-  config.compiled_ruby_files = FileList['app/**/*.rb']
+  # config.compiled_ruby_files = FileList['app/**/*.rb']
 
   # When set to true, Warbler will override the value of ENV['GEM_HOME'] even it
   # has already been set.
@@ -110,10 +110,10 @@ Warbler::Config.new do |config|
 
   # Files to be included in the root of the webapp.  Note that files in public
   # will have the leading 'public/' part of the path stripped during staging.
-  config.public_html = FileList["public/**/*"]
+  # config.public_html = FileList["public/**/*"]
 
   # Pathmaps for controlling how public HTML files are copied into the .war
-  # config.pathmaps.public_html = ["%{public/,}p"]
+  config.pathmaps.public_html = ["%{public/,}p"]
 
   # Embedded webserver to use with the 'executable' feature. Currently supported
   # webservers are:

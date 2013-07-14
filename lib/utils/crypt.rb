@@ -39,3 +39,8 @@ module Utils
     end
   end # Crypt
 end # Utils
+
+##
+# We need to apply Utils::Extensions
+#
+String.send(:include, Utils::Crypt)

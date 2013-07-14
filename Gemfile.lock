@@ -78,6 +78,7 @@ DEPENDENCIES
   multi_json
   multi_xml
   nestful
+  rack (= 1.4.5)
   rake
   redis
   redis-rack (= 1.4.2)

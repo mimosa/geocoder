@@ -8,6 +8,7 @@ group :development do
 end
 
 # Project requirements
+gem 'rack', '1.4.5'
 gem 'rake'
 gem 'jruby-openssl'
 gem 'nestful'

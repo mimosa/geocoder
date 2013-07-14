@@ -15,6 +15,26 @@ class Settings
     end
   end
 
+  # 查找
+  def find(q)
+    case
+    when decode.is_a?(Array)
+      decode.find_by(q)
+    when decode.is_a?(Hash)
+      decode.find_by_key(q, field)
+    end
+  end
+  
+  # 查找
+  def find_by(q, field)
+    case
+    when decode.is_a?(Array)
+      decode.find_by_hash(q, field)
+    when decode.is_a?(Hash)
+      decode.find_by_subkey(q, field)
+    end 
+  end
+
   def decode
     @decoded ||= Psych.load_file(file_name)
   end
