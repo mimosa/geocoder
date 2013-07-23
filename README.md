@@ -131,7 +131,7 @@ curl \
 ```bash
 curl \
   -H 'Content-Type: application/json' \
-  -i 'http://open.shou65.com/api/smssender/S2hmUWticlcxd1U9'
+  -i 'http://open.shou65.com/api/settings/S2hmUWticlcxd1U9'
 ```
 * 返回
 
