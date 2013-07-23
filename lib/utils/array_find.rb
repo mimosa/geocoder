@@ -4,11 +4,11 @@ module Utils
   module ArrayFind
     
     def find_by(q)
-      self.find_all {|x| x =~ /^#{q}\S+/ }
+      self.find_all {|x| x =~ /^#{q}+/ }
     end
 
     def find_by_hash(q, field)
-      self.find_all {|x| x[field] =~ /^#{q}\S+/ }
+      self.find_all {|x| x[field] =~ /^#{q}+/ }
     end
 
   end # ArrayFind

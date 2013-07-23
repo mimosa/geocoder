@@ -159,7 +159,11 @@ class API < Grape::API
     end
     get ':token' do
       @props = Settings.new(params[:token])
-      @props.decode
+      if @props.file?
+        @props.decode 
+      else
+        error!('404 Not Found', 404)
+      end
     end
 
     desc "查询。"
@@ -169,7 +173,7 @@ class API < Grape::API
     end
     get ':token/search' do
       @props = Settings.new(params[:token])
-      @props.find(params[:q].force_encoding('utf-8'))
+      @props.find(params[:q].force_encoding('utf-8')) if @props.file?
     end
 
     desc "查询字段。"
@@ -180,7 +184,7 @@ class API < Grape::API
     end
     get ':token/search/:field' do
       @props = Settings.new(params[:token])
-      @props.find_by(params[:q].force_encoding('utf-8'), params[:field])
+      @props.find_by(params[:q].force_encoding('utf-8'), params[:field]) if @props.file?
     end
 
     desc "更新配置。"
@@ -208,7 +212,7 @@ class API < Grape::API
     end
     delete ':token' do
       @props = Settings.new(params[:token])
-      @props.delete
+      @props.delete if @props.file?
 
       redirect "/settings"
     end

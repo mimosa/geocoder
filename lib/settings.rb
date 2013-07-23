@@ -10,9 +10,13 @@ class Settings
     @token = token.to_s
     
     # 新文件
-    unless File.exist?(file_name)
-      @token = token.to_s.encrypt(secure_token) 
+    unless file?
+      @token = token.to_s.encrypt(secure_token)
     end
+  end
+
+  def file?
+    @has_file ||= File.exist?(file_name)
   end
 
   # 查找
@@ -68,13 +72,14 @@ class Settings
   end
 
   def delete
-    File.delete(file_name) if File.exist?(file_name)
+    File.delete(file_name)
   end
 
   private
 
   def reload
-    @decoded = @json = nil
+    @has_file = true
+    @decoded  = @json = nil
   end
 
   def file_name

@@ -4,11 +4,11 @@ module Utils
   module HashFind
     
     def find_by_subkey(q, field)
-      select { |key, value| value[field].match(/^#{q}\S+/) }
+      select { |key, value| value[field].match(/^#{q}+/) }
     end
 
     def find_by_key(q)
-      select { |key| key.match(/^#{q}\S+/) }
+      select { |key| key.match(/^#{q}+/) }
     end
 
     def find_keys(path)
