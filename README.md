@@ -110,3 +110,71 @@ curl \
     }
 }
 ```
+简单的配置文件 调用说明
+====
+
+### 创建设置文件
+* '/api/settings/{配置名称}'；
+* 跳转至查看；
+
+```bash
+curl \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '[{"area_code":"021", "pinyin": "shanghai", "country": "中国", "city": "上海"},{"area_code":"0755", "pinyin": "shenzhen", "country": "中国", "city": "深圳"}]' \
+  -i 'http://open.shou65.com/api/settings/cities'
+```
+
+### 查看设置
+* '/api/settings/{密钥}'；
+
+```bash
+curl \
+  -H 'Content-Type: application/json' \
+  -i 'http://open.shou65.com/api/smssender/S2hmUWticlcxd1U9'
+```
+* 返回
+
+```json
+[
+  {
+    area_code: "021",
+    pinyin: "shanghai",
+    country: "中国",
+    city: "上海"
+  },
+  {
+    area_code: "0755",
+    pinyin: "shenzhen",
+    country: "中国",
+    city: "深圳"
+  }
+]
+```
+
+### 查询设置
+* '/api/settings/{密钥}/search/{字段}?q={关键字}'；
+
+```bash
+curl \
+  -H 'Content-Type: application/json' \
+  -i 'http://open.shou65.com/api/settings/S2hmUWticlcxd1U9/search/pinyin?q=sh'
+```
+* 返回
+
+```json
+[
+  {
+    area_code: "021",
+    pinyin: "shanghai",
+    country: "中国",
+    city: "上海"
+  },
+  {
+    area_code: "0755",
+    pinyin: "shenzhen",
+    country: "中国",
+    city: "深圳"
+  }
+]
+```

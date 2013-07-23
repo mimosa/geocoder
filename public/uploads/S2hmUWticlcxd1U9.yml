@@ -1,241 +1,241 @@
 ---
-- area_code: 0512
+- area_code: "0512"
   pinyin: suzhou
   country: 中国
   city: 苏州
-- area_code: 021
+- area_code: "021"
   pinyin: shanghai
   country: 中国
   city: 上海
-- area_code: 0510
+- area_code: "0510"
   pinyin: wuxi
   country: 中国
   city: 无锡
-- area_code: 0519
+- area_code: "0519"
   pinyin: changzhou
   country: 中国
   city: 常州
-- area_code: 020
+- area_code: "020"
   pinyin: canton
   country: 中国
   city: 广州
-- area_code: 0571
+- area_code: "0571"
   pinyin: hangzhou
   country: 中国
   city: 杭州
-- area_code: 0755
+- area_code: "0755"
   pinyin: shenzhen
   country: 中国
   city: 深圳
-- area_code: 028
+- area_code: "028"
   pinyin: chengdu
   country: 中国
   city: 成都
-- area_code: 025
+- area_code: "025"
   pinyin: nanjing
   country: 中国
   city: 南京
-- area_code: 010
+- area_code: "010"
   pinyin: beijing
   country: 中国
   city: 北京
-- area_code: 0579
+- area_code: "0579"
   pinyin: jinhua
   country: 中国
   city: 金华
-- area_code: 0532
+- area_code: "0532"
   pinyin: qingdao
   country: 中国
   city: 青岛
-- area_code: 0574
+- area_code: "0574"
   pinyin: ningbo
   country: 中国
   city: 宁波
-- area_code: 0514
+- area_code: "0514"
   pinyin: yangzhou
   country: 中国
   city: 扬州
-- area_code: 027
+- area_code: "027"
   pinyin: wuhan
   country: 中国
   city: 武汉
-- area_code: 0757
+- area_code: "0757"
   pinyin: foshan
   country: 中国
   city: 佛山
-- area_code: 0539
+- area_code: "0539"
   pinyin: linyi
   country: 中国
   city: 临沂
-- area_code: 0575
+- area_code: "0575"
   pinyin: shaoxing
   country: 中国
   city: 绍兴
-- area_code: 0572
+- area_code: "0572"
   pinyin: huzhou
   country: 中国
   city: 湖州
-- area_code: 0411
+- area_code: "0411"
   pinyin: dalian
   country: 中国
   city: 大连
-- area_code: 0535
+- area_code: "0535"
   pinyin: yantai
   country: 中国
   city: 烟台
-- area_code: 0511
+- area_code: "0511"
   pinyin: zhenjiang
   country: 中国
   city: 镇江
-- area_code: 0573
+- area_code: "0573"
   pinyin: jiaxing
   country: 中国
   city: 嘉兴
-- area_code: 0518
+- area_code: "0518"
   pinyin: lianyungang
   country: 中国
   city: 连云港
-- area_code: 0523
+- area_code: "0523"
   pinyin: taizhou
   country: 中国
   city: 泰州
-- area_code: 0451
+- area_code: "0451"
   pinyin: harbin
   country: 中国
   city: 哈尔滨
-- area_code: 0763
+- area_code: "0763"
   pinyin: qingyuan
   country: 中国
   city: 清远
-- area_code: 0335
+- area_code: "0335"
   pinyin: qinhuangdao
   country: 中国
   city: 秦皇岛
-- area_code: 0559
+- area_code: "0559"
   pinyin: huangshan
   country: 中国
   city: 黄山
-- area_code: 0899
+- area_code: "0899"
   pinyin: sanya
   country: 中国
   city: 三亚
-- area_code: 0872
+- area_code: "0872"
   pinyin: dali
   country: 中国
   city: 大理
-- area_code: 0311
+- area_code: "0311"
   pinyin: shijiazhuang
   country: 中国
   city: 石家庄
-- area_code: 023
+- area_code: "023"
   pinyin: chongqing
   country: 中国
   city: 重庆
-- area_code: 0756
+- area_code: "0756"
   pinyin: zhuhai
   country: 中国
   city: 珠海
-- area_code: 0578
+- area_code: "0578"
   pinyin: lishui
   country: 中国
   city: 丽水
-- area_code: 0750
+- area_code: "0750"
   pinyin: jiangmen
   country: 中国
   city: 江门
-- area_code: 022
+- area_code: "022"
   pinyin: tianjin
   country: 中国
   city: 天津
-- area_code: 0531
+- area_code: "0531"
   pinyin: jinan
   country: 中国
   city: 济南
-- area_code: 0576
+- area_code: "0576"
   pinyin: taizhou
   country: 中国
   city: 台州
-- area_code: 0563
+- area_code: "0563"
   pinyin: xuancheng
   country: 中国
   city: 宣城
-- area_code: 0773
+- area_code: "0773"
   pinyin: guilin
   country: 中国
   city: 桂林
-- area_code: 0551
+- area_code: "0551"
   pinyin: hefei
   country: 中国
   city: 合肥
-- area_code: 0592
+- area_code: "0592"
   pinyin: xiamen
   country: 中国
   city: 厦门
-- area_code: 0570
+- area_code: "0570"
   pinyin: quzhou
   country: 中国
   city: 衢州
-- area_code: 0371
+- area_code: "0371"
   pinyin: zhengzhou
   country: 中国
   city: 郑州
-- area_code: 0632
+- area_code: "0632"
   pinyin: zaozhuang
   country: 中国
   city: 枣庄
-- area_code: 0760
+- area_code: "0760"
   pinyin: zhongshan
   country: 中国
   city: 中山
-- area_code: 0951
+- area_code: "0951"
   pinyin: yinchuan
   country: 中国
   city: 银川
-- area_code: 029
+- area_code: "029"
   pinyin: xian
   country: 中国
   city: 西安
-- area_code: 0835
+- area_code: "0835"
   pinyin: yaan
   country: 中国
   city: 雅安
-- area_code: 0513
+- area_code: "0513"
   pinyin: nantong
   country: 中国
   city: 南通
-- area_code: 0379
+- area_code: "0379"
   pinyin: luoyang
   country: 中国
   city: 洛阳
-- area_code: 0538
+- area_code: "0538"
   pinyin: taian
   country: 中国
   city: 泰安
-- area_code: 0553
+- area_code: "0553"
   pinyin: wuhu
   country: 中国
   city: 芜湖
-- area_code: 0953
+- area_code: "0953"
   pinyin: zhongwei
   country: 中国
   city: 中卫
-- area_code: 0516
+- area_code: "0516"
   pinyin: xuzhou
   country: 中国
   city: 徐州
-- area_code: 0769
+- area_code: "0769"
   pinyin: dongguan
   country: 中国
   city: 东莞
-- area_code: 0593
+- area_code: "0593"
   pinyin: ningde
   country: 中国
   city: 宁德
-- area_code: 0691
+- area_code: "0691"
   pinyin: xishuangbanna
   country: 中国
   city: 西双版纳
-- area_code: 0791
+- area_code: "0791"
   pinyin: nanchang
   country: 中国
   city: 南昌
