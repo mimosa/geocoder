@@ -28,6 +28,13 @@ GEO 调用说明
 
 [身份证](http://open.shou65.com/api/geocoder/610103198006220000)
 
+国内天气 调用说明
+====
+
+[IP定位](http://open.shou65.com/api/weather)
+
+[指定城市](http://open.shou65.com/api/weather/上海)
+
 短网址 调用说明
 ====
 

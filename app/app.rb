@@ -90,9 +90,8 @@ class API < Grape::API
 
       # 结果
       if result.has_key?('city')
-        city_name = result['city']
-             city = redis.hgetall(city_name)
-      result.merge!( weather(city['code']) ) unless city.nil?
+        city = redis.hgetall( result['city'] )
+        result.merge!( weather(city['code']) ) unless city.empty?
       end
 
       result
