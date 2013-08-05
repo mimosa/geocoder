@@ -1,10 +1,26 @@
 # -*- encoding: utf-8 -*-
 require 'base64'
+require 'nestful'
+require 'multi_json'
+require 'geocoder' # 地理位置
 
 module BaseHelpers
   # 用户令牌
   def token_base64
     env['rack.session'][:token_base64] ||= headers['X-Auth-Token']
+  end
+
+  def geocoder(location)
+    @geocoder ||= Geocoder.new
+       result = @geocoder.get(location)
+    return result unless result.nil?
+    {}
+  end
+
+  def weather(code)
+    request = Nestful.get("http://m.weather.com.cn/data/#{code}.html") rescue nil
+    return MultiJson.load(request.body) unless request.nil?
+    {}
   end
 
   # 帐号

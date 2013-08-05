@@ -1,7 +1,6 @@
 # -*- encoding: utf-8 -*-
 require 'grape'
 # 
-require 'geocoder'  # 地理位置
 require 'shortener' # 短网址
 require 'smsbao'   # 短信
 require 'settings' # YAML配置文件
@@ -25,7 +24,8 @@ class API < Grape::API
       geocoder: {},
       shortener: {},
       smssender: {},
-      settings: {}
+      settings: {},
+      weather: {}
     }
   end
 
@@ -36,12 +36,7 @@ class API < Grape::API
       location = remote_ip
 
       # IP
-      unless location.nil?
-        @geocoder = Geocoder.new
-             geo  = @geocoder.get(location)
-
-        result.merge!(geo) unless geo.nil?
-      end
+      result.merge!( geocoder(location) ) unless location.nil?
 
       # 结果
       result
@@ -77,14 +72,40 @@ class API < Grape::API
       end
 
       # IP 或 地址 查询
-      unless location.nil?
-        @geocoder = Geocoder.new
-        geo  = @geocoder.get(location)
-        result.merge!(geo) unless geo.nil?
-      end
+      result.merge!( geocoder(location) ) unless location.nil?
 
       # 结果
       result
+    end
+  end
+
+  resource :weather do
+    desc "当前城市，天气预报。"
+    get '/' do
+      result   = {}
+      location = remote_ip
+
+      # IP
+      result.merge!( geocoder(location) ) unless location.nil?
+
+      # 结果
+      if result.has_key?('city')
+        city_name = result['city']
+             city = redis.hgetall(city_name)
+      result.merge!( weather(city['code']) ) unless city.nil?
+      end
+
+      result
+    end
+
+    desc "天气预报。"
+    params do
+      requires :city, type: String, desc: "城市"
+    end
+    get ':city' do
+      city = redis.hgetall( params[:city].force_encoding('utf-8') )
+      return weather(city['code']) unless city.empty?
+      {}
     end
   end
 

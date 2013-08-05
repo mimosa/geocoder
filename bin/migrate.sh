@@ -16,3 +16,11 @@ echo 'import idcard data finished.'
 echo 'try it now: '
 echo '  $ redis-cli HGET 610103 location'
 echo '  "陕西省西安市碑林区"'
+
+cat ./db/cities.csv | awk -F "|" "BEGIN {y=1} {print \"HMSET\", \$1, \"code\", \$2 ; y++ }" | redis-cli > /dev/null 
+
+
+echo 'import idcard data finished.'
+echo 'try it now: '
+echo '  $ redis-cli HGET "北京" location'
+echo '  "101010100"'

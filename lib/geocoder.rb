@@ -5,7 +5,6 @@ require 'multi_json'
 class Geocoder
 
   def initialize(language='zh_CN')
-    # @translator = GoogleTranslate.new
     @language   = language
   end
 
@@ -106,7 +105,6 @@ class Geocoder
   end
 
   def translate_json(str)
-
     client(translate_url, { client: 'p', langpair: 'en|zh-CN', text: str, ie: 'UTF-8', oe: 'UTF-8'})
   end
 
