@@ -87,10 +87,9 @@ class API < Grape::API
 
       # IP
       result.merge!( geocoder(location) ) unless location.nil?
-
       # 结果
-      if result.has_key?('city')
-        city = redis.hgetall( result['city'] )
+      if result.has_key?(:city)
+        city = redis.hgetall( result[:city] )
         result.merge!( weather(city['code']) ) unless city.empty?
       end
 

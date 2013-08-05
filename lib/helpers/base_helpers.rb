@@ -19,7 +19,7 @@ module BaseHelpers
 
   def weather(code)
     request = Nestful.get("http://m.weather.com.cn/data/#{code}.html") rescue nil
-    return MultiJson.load(request.body) unless request.nil?
+    return MultiJson.load(request.body)['weatherinfo'] unless request.nil?
     {}
   end
 
