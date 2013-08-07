@@ -32,11 +32,14 @@ class API < Grape::API
   resource :geocoder do
     desc "IP地址。"
     get '/' do
-      result   = {}
       location = remote_ip
+      result   = {}
 
       # IP
-      result.merge!( geocoder(location) ) unless location.nil?
+      unless location.nil?
+        result[:ip] = location
+        result.merge!( geocoder(location) )
+      end
 
       # 结果
       result

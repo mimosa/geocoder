@@ -3,6 +3,7 @@ require 'base64'
 require 'nestful'
 require 'multi_json'
 require 'geocoder' # 地理位置
+require 'weather'  # 天气
 
 module BaseHelpers
   # 用户令牌
@@ -18,9 +19,8 @@ module BaseHelpers
   end
 
   def weather(code)
-    request = Nestful.get("http://m.weather.com.cn/data/#{code}.html") rescue nil
-    return MultiJson.load(request.body)['weatherinfo'] unless request.nil?
-    {}
+    @weather ||= Weather.new
+    return @weather.get(code)
   end
 
   # 帐号
