@@ -185,3 +185,22 @@ curl \
   }
 ]
 ```
+
+中文分词 调用说明
+====
+* POST 适合长文本
+```bash
+curl \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{"text":"诺基亚已经活了150年了，还会活下去。死掉的是产品，只是换个活法而已，也许是一个新的开始。"}' \
+  -i 'http://open.shou65.com/api/analyzer'
+```
+* 返回
+```json
+  [
+    "诺基亚", "已经", "150年", "下去", "产品", "活法", "而已", "也许", "一个", "开始"
+  ]
+```
+
+[GET 适合少量文字](http://open.shou65.com/api/analyzer/网络上，我们用“赞”归纳一切暧昧)

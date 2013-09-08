@@ -4,6 +4,7 @@ require 'grape'
 require 'shortener' # 短网址
 require 'smsbao'   # 短信
 require 'settings' # YAML配置文件
+require 'ansj_seg' # 中文分词
 # Helpers
 require 'helpers/base_helpers'
 
@@ -25,7 +26,8 @@ class API < Grape::API
       shortener: {},
       smssender: {},
       settings: {},
-      weather: {}
+      weather: {},
+      analyzer: {}
     }
   end
 
@@ -237,6 +239,31 @@ class API < Grape::API
       @props.delete if @props.file?
 
       redirect "/settings"
+    end
+  end
+
+  resource :analyzer do
+    desc "中文分词。"
+    get '/' do
+      redirect 'https://github.com/mimosa/ansj_seg-jruby'
+    end
+
+    desc "中文分词。"
+    params do
+      requires :text, type: String, desc: "中文文字"
+    end
+    post '/' do
+      chn_str = params[:text].force_encoding('utf-8').to_s
+      chn_str.to_seg unless chn_str.blank?
+    end
+
+    desc "中文分词。"
+    params do
+      requires :text, type: String, desc: "中文文字"
+    end
+    get ':text', requirements: { text: /(.*)/ } do
+      chn_str = params[:text].force_encoding('utf-8').to_s
+      chn_str.to_seg unless chn_str.blank?
     end
   end
 

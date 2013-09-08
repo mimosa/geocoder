@@ -1,9 +1,11 @@
 source 'http://ruby.taobao.org'
-ruby '1.9.3', engine: 'jruby', engine_version: '1.7.4'
+#ruby=jruby-1.7.4
+# ruby '1.9.3', engine: 'jruby', engine_version: '1.7.4'
 
 group :development do
   gem 'warbler' # 打包工具
-  gem 'mizuno'
+  gem 'puma'
+  gem 'pry'
   gem 'awesome_print'
 end
 
@@ -19,3 +21,5 @@ gem 'redis-rack', '1.4.2' # Session
 
 gem 'multi_json' # JOSN解析
 gem 'multi_xml'  # XML解析
+
+gem 'ansj_seg-jruby' # 中文分词
