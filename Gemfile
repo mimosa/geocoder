@@ -4,7 +4,7 @@ source 'http://ruby.taobao.org'
 
 group :development do
   gem 'warbler' # 打包工具
-  gem 'puma'
+  gem 'torquebox-lite'
   gem 'pry'
   gem 'awesome_print'
 end
