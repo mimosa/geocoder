@@ -15,7 +15,14 @@ FileSet.glob_require('app/*.rb', __FILE__)
 # 静态文件
 use Rack::Static, urls: [ '/favicon.ico', '/uploads' ], root: 'public'
 use Rack::Session::Redis
-
+require 'rack/cors'
+# 
+use Rack::Cors do
+  allow do
+    origins '*'
+    resource '*', headers: :any, :methods => :get
+  end
+end
 # 运行 Grape
 run Rack::Cascade.new([
   API

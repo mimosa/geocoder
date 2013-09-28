@@ -7,15 +7,17 @@ require 'settings' # YAML配置文件
 require 'ansj_seg' # 中文分词
 # Helpers
 require 'helpers/base_helpers'
+require 'rack/contrib'
 
 class API < Grape::API
+  use Rack::JSONP
   format  :json
   content_type :xml, 'text/xml'
 
   helpers ::BaseHelpers
 
   before do
-    header 'X-Robots-Tag', 'noindex'
+    header 'Cache-Control', 'public, max-age=86400'
     header 'Content-Type', 'application/json; charset=utf-8'
   end
 

@@ -11,6 +11,8 @@ end
 
 # Project requirements
 gem 'rack', '1.4.5'
+gem 'rack-contrib'
+gem 'rack-cors'
 gem 'rake'
 gem 'jruby-openssl'
 gem 'nestful'
