@@ -16,11 +16,11 @@ FileSet.glob_require('app/*.rb', __FILE__)
 use Rack::Static, urls: [ '/favicon.ico', '/uploads' ], root: 'public'
 use Rack::Session::Redis
 require 'rack/cors'
-# 
+# 跨域处理
 use Rack::Cors do
   allow do
     origins '*'
-    resource '*', headers: :any, :methods => :get
+    resource '*', headers: :any, :methods => [:get, :post, :put, :delete, :options]
   end
 end
 # 运行 Grape
