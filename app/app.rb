@@ -19,6 +19,8 @@ class API < Grape::API
   before do
     header 'Cache-Control', 'public, max-age=86400'
     header 'Content-Type', 'application/json; charset=utf-8'
+    header 'Access-Control-Allow-Origin', '*'
+    header 'Access-Control-Request-Method', '*'
   end
 
   desc "首页。"
@@ -246,8 +248,12 @@ class API < Grape::API
 
   resource :analyzer do
     desc "中文分词。"
+    params do
+      requires :text, type: String, desc: "中文文字"
+    end
     get '/' do
-      redirect 'https://github.com/mimosa/ansj_seg-jruby'
+      chn_str = params[:text].force_encoding('utf-8').to_s
+      chn_str.to_seg unless chn_str.blank?
     end
 
     desc "中文分词。"
