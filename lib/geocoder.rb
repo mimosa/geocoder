@@ -46,8 +46,12 @@ class Geocoder
     else
       translate(engs).split('|')
     end
+    # 谷歌翻译会合并相同单词
+    if chs[0].empty?
+      chs[0] = chs[1]
+    end
     {
-      city: chs[0] || chs[1],
+      city: chs[0],
       region: chs[1],
       country: chs[2],
       latitude: json['geoplugin_latitude'].to_f,
