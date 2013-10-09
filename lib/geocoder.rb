@@ -47,7 +47,7 @@ class Geocoder
       translate(engs).split('|')
     end
     {
-      city: chs[0],
+      city: chs[0] || chs[1],
       region: chs[1],
       country: chs[2],
       latitude: json['geoplugin_latitude'].to_f,
