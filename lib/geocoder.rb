@@ -108,7 +108,7 @@ class Geocoder
         result[:bounds][:north] = geometry['bounds']['northeast']['lat']
         result[:bounds][:south] = geometry['bounds']['southwest']['lat']
         result[:bounds][:east] = geometry['bounds']['northeast']['lng']
-        result[:bounds][:west] = geometry['bounds']['northeast']['lng']
+        result[:bounds][:west] = geometry['bounds']['southwest']['lng']
       end
     end
     return result
