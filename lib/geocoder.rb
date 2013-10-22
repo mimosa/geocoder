@@ -96,9 +96,20 @@ class Geocoder
         end
       end
       # 坐标
-      geocode = json['geometry']['location']
-      result[:latitude] = geocode['lat']
-      result[:longitude] = geocode['lng']
+      geometry = json['geometry']
+      # 经纬
+      if geometry.has_key?('location')
+         result[:latitude] = geometry['location']['lat']
+        result[:longitude] = geometry['location']['lng']
+      end
+      # 边界
+      if geometry.has_key?('bounds')
+        result[:bounds] = {}
+        result[:bounds][:north] = geometry['bounds']['northeast']['lat']
+        result[:bounds][:south] = geometry['bounds']['southwest']['lat']
+        result[:bounds][:east] = geometry['bounds']['northeast']['lng']
+        result[:bounds][:west] = geometry['bounds']['northeast']['lng']
+      end
     end
     return result
   end
