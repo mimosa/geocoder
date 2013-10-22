@@ -1,6 +1,6 @@
 source 'http://ruby.taobao.org'
-#ruby=jruby-1.7.4
-# ruby '1.9.3', engine: 'jruby', engine_version: '1.7.4'
+#ruby=jruby-1.7.5
+# ruby '1.9.3', engine: 'jruby', engine_version: '1.7.5'
 
 group :development do
   gem 'warbler' # 打包工具
