@@ -20,27 +20,27 @@
 GEO 调用说明
 ====
 
-[IP地址](http://open.shou65.com/api/geocoder/113.140.219.74)
+[IP地址](http://open.shou65.com/geocoder/113.140.219.74)
 
-[手机号](http://open.shou65.com/api/geocoder/18016245161)
+[手机号](http://open.shou65.com/geocoder/18016245161)
 
-[凯翔小区](http://open.shou65.com/api/geocoder/凯翔小区)
+[凯翔小区](http://open.shou65.com/geocoder/凯翔小区)
 
-[身份证](http://open.shou65.com/api/geocoder/610103198006220000)
+[身份证](http://open.shou65.com/geocoder/610103198006220000)
 
 国内天气 调用说明
 ====
 
-[IP定位](http://open.shou65.com/api/weather)
+[IP定位](http://open.shou65.com/weather)
 
-[指定城市](http://open.shou65.com/api/weather/上海)
+[指定城市](http://open.shou65.com/weather/上海)
 
 短网址 调用说明
 ====
 
-[新浪](http://open.shou65.com/api/shortener/sina?long_url=http%3a%2f%2fwww.google.com%2flogin.jsp?user_id=1)
+[新浪](http://open.shou65.com/shortener/sina?long_url=http%3a%2f%2fwww.google.com%2flogin.jsp?user_id=1)
 
-[腾讯](http://open.shou65.com/api/shortener/tencent?long_url=http%3a%2f%2fwww.google.com%2flogin.jsp?user_id=1)
+[腾讯](http://open.shou65.com/shortener/tencent?long_url=http%3a%2f%2fwww.google.com%2flogin.jsp?user_id=1)
 
 [短信](http://smsbao.com)发送 调用说明
 ====
@@ -51,13 +51,13 @@ GEO 调用说明
 ```bash
 curl \
   -H 'Content-Type: application/json' \
-  -i 'http://open.shou65.com/api/smssender/token?login=用户名&amp;passwd=密码'		
+  -i 'http://open.shou65.com/smssender/token?login=用户名&amp;passwd=密码'   
 ```
 * 返回
 
 ```json
 {
-	"X-Auth-Token": "密钥"
+  "X-Auth-Token": "密钥"
 }
 ```
 
@@ -67,11 +67,11 @@ curl \
 
 ```bash
 curl \
-	-X POST \
-	-H 'X-Auth-Token: 密钥' \
-	-H 'Content-Type: application/json' \
-	-d '{ "mobile": "手机号", "content": "短信测试" }' \
-	-i 'http://open.shou65.com/api/smssender'
+  -X POST \
+  -H 'X-Auth-Token: 密钥' \
+  -H 'Content-Type: application/json' \
+  -d '{ "mobile": "手机号", "content": "短信测试" }' \
+  -i 'http://open.shou65.com/smssender'
 ```
 * 单发，返回
 
@@ -102,9 +102,9 @@ curl \
 
 ```bash
 curl \
-	-H 'X-Auth-Token: 密钥' \
-	-H 'Content-Type: application/json' \
-	-i 'http://open.shou65.com/api/smssender'
+  -H 'X-Auth-Token: 密钥' \
+  -H 'Content-Type: application/json' \
+  -i 'http://open.shou65.com/smssender'
 ```
 * 返回
 
@@ -129,7 +129,7 @@ curl \
   -X POST \
   -H 'Content-Type: application/json' \
   -d '[{"area_code":"021", "pinyin": "shanghai", "country": "中国", "city": "上海"},{"area_code":"0755", "pinyin": "shenzhen", "country": "中国", "city": "深圳"}]' \
-  -i 'http://open.shou65.com/api/settings/cities'
+  -i 'http://open.shou65.com/settings/cities'
 ```
 
 ### 查看设置
@@ -138,7 +138,7 @@ curl \
 ```bash
 curl \
   -H 'Content-Type: application/json' \
-  -i 'http://open.shou65.com/api/settings/S2hmUWticlcxd1U9'
+  -i 'http://open.shou65.com/settings/S2hmUWticlcxd1U9'
 ```
 * 返回
 
@@ -165,7 +165,7 @@ curl \
 ```bash
 curl \
   -H 'Content-Type: application/json' \
-  -i 'http://open.shou65.com/api/settings/S2hmUWticlcxd1U9/search/pinyin?q=sh'
+  -i 'http://open.shou65.com/settings/S2hmUWticlcxd1U9/search/pinyin?q=sh'
 ```
 * 返回
 
@@ -195,7 +195,7 @@ curl \
   -X POST \
   -H 'Content-Type: application/json' \
   -d '{"text":"诺基亚已经活了150年了，还会活下去。死掉的是产品，只是换个活法而已，也许是一个新的开始。"}' \
-  -i 'http://open.shou65.com/api/analyzer'
+  -i 'http://open.shou65.com/analyzer'
 ```
 * 返回
 
@@ -206,4 +206,4 @@ curl \
   ]
 ```
 
-[GET 适合少量文字](http://open.shou65.com/api/analyzer/网络上，我们用“赞”归纳一切暧昧)
+[GET 适合少量文字](http://open.shou65.com/analyzer/网络上，我们用“赞”归纳一切暧昧)
