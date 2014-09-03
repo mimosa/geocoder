@@ -54,14 +54,14 @@ class Weather
 
     result[:next_days] = days
     # 今日指数
-    result[:indices] = {
+    result[:tips] = {
       clad: json['index_d'],
       uv: json['index_uv'],
-      car_wash: json['index_xc'],
+      cleanning: json['index_xc'],
       travel: json['index_tr'],
       allergy:  json['index_ag'],
       drying: json['index_ls'],
-      morning_exercise: json['index_cl'],
+      morning: json['index_cl'],
     }
 
     return result
